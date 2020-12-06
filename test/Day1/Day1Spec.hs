@@ -4,12 +4,23 @@ import           Day1.Day1
 import           Test.Hspec
 
 spec :: Spec
-spec = describe "solve" $ do
-  it "should give the expected result with the given sample" $ do
-    let sample = [1721, 979, 366, 299, 675, 1456]
-    solve sample `shouldBe` 514579
-  it "should give the expected result with the given sample"
-    $          solve [1010, 1721, 299]
-    `shouldBe` 514579
+spec = do
+  describe "solve" $ do
+    it "should give the expected result with the given sample"
+      $          solve sample
+      `shouldBe` 514579
+    it "should give the expected result with the given sample"
+      $          solve sample'
+      `shouldBe` 514579
+  describe "solve'" $ do
+    it "should give the expected result with the given sample"
+      $          solve' sample
+      `shouldBe` 514579
+    it "should give the expected result with the given sample"
+      $          solve' sample'
+      `shouldBe` 514579
 
 
+sample = [1721, 979, 366, 299, 675, 1456]
+
+sample' = [1010, 1721, 299]
