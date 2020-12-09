@@ -28,7 +28,7 @@ library
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      base >= 4.7 && <5
   default-language: Haskell2010
 
 executable aoc-exe
@@ -40,7 +40,7 @@ executable aoc-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aoc
-    , base >=4.7 && <5
+    , base >= 4.7 && <5
   default-language: Haskell2010
 
 test-suite aoc-test
@@ -55,15 +55,18 @@ test-suite aoc-test
   build-depends:
       QuickCheck
     , aoc
-    , base >=4.7 && <5
+    , base >= 4.7 && <5
     , hspec
   default-language: Haskell2010
 
 benchmark aoc-bench
-  type:             exitcode-stdio-1.0
-  hs-source-dirs:   bench
-  main-is:          Main.hs
-  build-depends:    base,
-                    criterion
-  ghc-options:      -O2
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  hs-source-dirs: 
+      bench
+  ghc-options: -O2
+  build-depends:
+      aoc
+    , base >= 4.7 && <5
+    , criterion
   default-language: Haskell2010
