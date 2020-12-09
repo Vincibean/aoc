@@ -1,10 +1,12 @@
 module Day1.Day1
   ( solve
   , solve'
+  , solve''
   )
 where
 
 import           Control.Monad                  ( guard )
+import qualified Data.IntSet                   as IntSet
 
 solve :: [Int] -> Int
 solve is = head
@@ -19,3 +21,10 @@ solve' is = head $ do
   (i', y) <- xs
   guard (x + y == 2020 && i /= i')
   return $ x * y
+
+
+solve'' :: [Int] -> Int
+solve'' is = head [ t n * n | n <- is, IntSet.member (t n) s ]
+ where
+  s = IntSet.fromList is
+  t = (2020 -)

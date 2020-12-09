@@ -19,6 +19,10 @@ spec = do
     it "should give the expected result with the given sample"
       $          solve' sample'
       `shouldBe` 514579
+  describe "solve''"
+    $          it "should give the expected result with the given sample"
+    $          solve'' sample
+    `shouldBe` 514579
 
 
 sample = [1721, 979, 366, 299, 675, 1456]
