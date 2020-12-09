@@ -12,5 +12,6 @@ main = defaultMain
       [ bench "solve" $ whnf solve sample
       , bench "solve'" $ whnf solve' sample
       , bench "solve''" $ whnf solve'' sample
+      , bench "solve2" $ whnf solve2 sample
       ]
   ]
