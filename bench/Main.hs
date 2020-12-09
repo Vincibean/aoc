@@ -1,20 +1,13 @@
 module Main where
 
-import Criterion.Main
+import           Criterion.Main
 
--- The function we're benchmarking.
-fib m | m < 0     = error "negative!"
-      | otherwise = go m
-  where
-    go 0 = 0
-    go 1 = 1
-    go n = go (n-1) + go (n-2)
+import           Day1.Day1
 
--- Our benchmark harness.
-main = defaultMain [
-  bgroup "fib" [ bench "1"  $ whnf fib 1
-               , bench "5"  $ whnf fib 5
-               , bench "9"  $ whnf fib 9
-               , bench "11" $ whnf fib 11
-               ]
+sample = [1721, 979, 366, 299, 675, 1456]
+
+main = defaultMain
+  [ bgroup
+      "Day 1"
+      [bench "solve" $ whnf solve sample, bench "solve'" $ whnf solve' sample]
   ]
